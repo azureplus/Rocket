@@ -5,6 +5,7 @@
 
 package org.mozilla.focus.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -106,4 +107,8 @@ abstract class FirebaseWrapper {
 
     public static void event(Context context, String key, Bundle param) {
     }
+
+    public static void eventScreen(Activity activity, String screenName) {
+    }
+
 }

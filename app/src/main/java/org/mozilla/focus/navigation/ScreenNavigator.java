@@ -5,6 +5,7 @@
 
 package org.mozilla.focus.navigation;
 
+import android.app.Activity;
 import android.arch.lifecycle.DefaultLifecycleObserver;
 import android.arch.lifecycle.LifecycleOwner;
 import android.content.Context;
@@ -15,6 +16,7 @@ import android.support.v4.app.FragmentManager;
 import android.util.Log;
 
 import org.mozilla.focus.BuildConfig;
+import org.mozilla.focus.utils.FirebaseHelper;
 import org.mozilla.focus.widget.BackKeyHandleable;
 
 import java.util.Arrays;
@@ -44,6 +46,7 @@ public class ScreenNavigator implements DefaultLifecycleObserver {
             if (f instanceof UrlInputScreen) {
                 ScreenNavigator.this.transactionHelper.onUrlInputScreenVisible(true);
             }
+            FirebaseHelper.eventScreen((android.app.Activity)activity, f.getClass().getSimpleName());
         }
 
         @Override

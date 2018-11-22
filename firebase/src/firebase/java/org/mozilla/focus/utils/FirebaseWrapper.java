@@ -5,6 +5,7 @@
 
 package org.mozilla.focus.utils;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -376,5 +377,9 @@ abstract class FirebaseWrapper {
             return;
         }
         FirebaseAnalytics.getInstance(context).logEvent(key, param);
+    }
+
+    public static void eventScreen(Activity activity, String screenName){
+        FirebaseAnalytics.getInstance(activity).setCurrentScreen(activity, screenName, null);
     }
 }
